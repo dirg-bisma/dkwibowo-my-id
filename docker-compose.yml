@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: local
+      APP_URL: http://localhost:8080
+      APP_TIMEZONE: Asia/Jakarta
+      DB_PATH: /var/www/html/database/indexer.sqlite
+      UPLOAD_MAX_SIZE: 2097152
+      DEFAULT_PER_PAGE: 5
+      MAX_PER_PAGE: 50
+      GOOGLE_CLIENT_ID: ""
+      GOOGLE_CLIENT_SECRET: ""
+      GOOGLE_REDIRECT_URI: http://localhost:8080/admin/oauth/callback
+      ADMIN_EMAILS: ""
+    volumes:
+      - ./content:/var/www/html/content
+      - ./database:/var/www/html/database
+      - ./storage:/var/www/html/storage

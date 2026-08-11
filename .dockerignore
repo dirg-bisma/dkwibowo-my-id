@@ -1,0 +1,9 @@
+.git
+.env
+.DS_Store
+vendor
+graphify-out
+storage/media/*
+storage/trash/*
+database/*.sqlite
+database/*.sqlite-*

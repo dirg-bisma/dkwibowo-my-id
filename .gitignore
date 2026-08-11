@@ -1,0 +1,11 @@
+.env
+/vendor/
+/database/*.sqlite
+/database/*.sqlite-*
+/storage/media/*
+/storage/trash/*
+!.gitkeep
+.DS_Store
+graphify-out/*
+AGENTS.md
+docs/graphify-out/*

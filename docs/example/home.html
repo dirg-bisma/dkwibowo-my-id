@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dirga Hayu - Full-Stack Engineer &amp; AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Jetbrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-tertiary-container": "#461f00", "on-tertiary": "#502400", background: "#10131a", "on-secondary-container": "#00452e", "inverse-on-surface": "#2e3038", "on-error-container": "#ffdad6", "surface-container": "#1d2027", "tertiary-container": "#df7412", "on-tertiary-fixed": "#311400", "tertiary-fixed-dim": "#ffb786", "primary-fixed-dim": "#adc6ff", "on-primary-container": "#00285d", "on-primary": "#002e6a", "on-primary-fixed-variant": "#004395", "surface-container-high": "#272a31", "on-primary-fixed": "#001a42", "primary-fixed": "#d8e2ff", "error-container": "#93000a", "surface-variant": "#32353c", "on-surface-variant": "#c2c6d6", "outline-variant": "#424754", "surface-container-lowest": "#0b0e15", "subtle-gray": "#6B7280", error: "#ffb4ab", "on-secondary-fixed-variant": "#005137", "secondary-fixed": "#68fcbf", "surface-container-low": "#191b23", secondary: "#45dfa4", outline: "#8c909f", surface: "#10131a", "surface-elevated": "#111827", "secondary-fixed-dim": "#45dfa4", "on-secondary": "#003825", "on-error": "#690005", "surface-container-highest": "#32353c", "secondary-container": "#00bd85", "primary-container": "#4d8eff", "surface-tint": "#adc6ff", "surface-dim": "#10131a", "on-surface": "#e1e2ec", "on-tertiary-fixed-variant": "#723600", "surface-bright": "#363941", tertiary: "#ffb786", "inverse-primary": "#005ac2", primary: "#adc6ff", "on-background": "#e1e2ec", "tertiary-fixed": "#ffdcc6", "inverse-surface": "#e1e2ec", "on-secondary-fixed": "#002114", "accent-light": "#10B981", "text-secondary-light": "#6B7280", "background-dark": "#0F172A", "surface-dark": "#1E293B", "primary-light": "#2563EB", "border-light": "#E5E7EB", "text-primary-light": "#111827", "text-secondary-dark": "#94A3B8", "background-light": "#FFFFFF", "surface-light": "#F8F9FA", "border-dark": "#334155", "text-primary-dark": "#F1F5F9"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {unit: "8px", gutter: "24px", "section-gap": "160px", "container-max": "1280px", "margin-mobile": "20px", "3xl": "64px", lg: "24px", "2xl": "48px", xl: "32px", xs: "4px", base: "8px", sm: "8px", md: "16px", "4xl": "96px"}, fontFamily: {"headline-md": ["Manrope", "sans-serif"], "body-lg": ["beVietnamPro"], "display-lg": ["Manrope", "sans-serif"], "headline-lg": ["Manrope", "sans-serif"], "display-lg-mobile": ["Manrope", "sans-serif"], "label-caps": ["JetBrains Mono", "monospace"], "body-md": ["Inter", "sans-serif"], headline: ["Be Vietnam Pro"], display: ["Be Vietnam Pro"], body: ["Be Vietnam Pro"], label: ["Jetbrains Mono"], "headline-h1-mobile": ["beVietnamPro"], "body-sm": ["beVietnamPro"], "headline-h1": ["beVietnamPro"], "body-reg-bold": ["beVietnamPro"], "headline-h3": ["beVietnamPro"], "headline-h2": ["beVietnamPro"], "headline-h4": ["beVietnamPro"], "body-reg": ["beVietnamPro"], "headline-h2-mobile": ["beVietnamPro"], code: ["jetbrainsMono"]}, fontSize: {"headline-md": ["24px", {lineHeight: "1.4", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "800"}], "headline-lg": ["32px", {lineHeight: "1.3", fontWeight: "700"}], "display-lg-mobile": ["40px", {lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800"}], "label-caps": ["12px", {lineHeight: "1.5", letterSpacing: "0.2em", fontWeight: "500"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "headline-h1-mobile": ["32px", {lineHeight: "40px", fontWeight: "700"}], "body-sm": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-h1": ["48px", {lineHeight: "56px", fontWeight: "700"}], "body-reg-bold": ["16px", {lineHeight: "24px", fontWeight: "500"}], "headline-h3": ["24px", {lineHeight: "32px", fontWeight: "700"}], "headline-h2": ["36px", {lineHeight: "44px", fontWeight: "700"}], "headline-h4": ["20px", {lineHeight: "28px", fontWeight: "700"}], "body-reg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-h2-mobile": ["28px", {lineHeight: "36px", fontWeight: "700"}], code: ["14px", {lineHeight: "20px", fontWeight: "400"}]}, animation: {"fade-in-up": "fadeInUp 0.8s ease-out forwards", "fade-in": "fadeIn 1s ease-out forwards"}, keyframes: {fadeInUp: {"0%": {opacity: "0", transform: "translateY(20px)"}, "100%": {opacity: "1", transform: "translateY(0)"}}, fadeIn: {"0%": {opacity: "0"}, "100%": {opacity: "1"}}}}}};</script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            overflow-x: hidden;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+        .stagger-4 { transition-delay: 400ms; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.background'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant'); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(243, 244, 246, 0.1);
+        }
+
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .parallax-element {
+                transform: none !important;
+                transition: none !important;
+            }
+            .scroll-reveal {
+                transition: opacity 0.8s ease-out;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300" id="navbar">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary tracking-tighter hover:opacity-80 transition-opacity" href="#">
+                ALVALENS
+            </a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#work">Work</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#skills">Skills</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#experience">Experience</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#about">About</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+<a class="font-label-caps text-label-caps text-background bg-primary px-6 py-3 rounded hover:scale-[1.02] transition-transform duration-200" href="#">
+                    Resume
+                </a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="w-full">
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center pt-24 pb-section-gap relative overflow-hidden" id="hero">
+<!-- Abstract Background Elements -->
+<div class="absolute inset-0 pointer-events-none opacity-20 parallax-element" data-speed="0.2">
+<div class="absolute top-1/4 -left-1/4 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] rounded-full bg-surface-variant/20 blur-[100px]"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-primary/5 border-dashed rounded-full animate-[spin_60s_linear_infinite]"></div>
+</div>
+<!-- Dot Grid Element -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03] parallax-element" data-speed="0.1" style="background-image: radial-gradient(circle at center, white 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="max-w-container-max mx-auto px-gutter md:px-margin-mobile w-full flex flex-col md:flex-row items-center gap-12 lg:gap-24 relative z-10 scroll-reveal">
+<!-- Text Content -->
+<div class="flex-1 space-y-8 animate-fade-in-up">
+<div class="inline-flex items-center gap-3 glass-panel px-4 py-2 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Available for work</span>
+</div>
+<div class="space-y-4">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
+                            Dirga Hayu
+                        </h1>
+<h2 class="font-headline-lg text-headline-lg text-on-surface-variant">
+                            Building intelligent systems with AI &amp; scalable engineering
+                        </h2>
+</div>
+<p class="font-body-lg text-body-lg text-subtle-gray max-w-2xl">
+                        I am a Full-Stack Engineer specializing in Artificial Intelligence. I design and build robust, scalable architectures that bridge complex data models with intuitive user experiences.
+                    </p>
+<div class="flex flex-wrap items-center gap-6 pt-4">
+<a class="bg-primary text-background font-body-md text-body-md font-medium px-8 py-4 rounded hover:scale-[1.02] transition-transform duration-200" href="#contact">
+                            Get in Touch
+                        </a>
+<div class="flex items-center gap-4 text-subtle-gray">
+<a class="hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<span class="font-label-caps text-label-caps border-l border-white/10 pl-4">dkwibowo.my.id</span>
+</div>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="flex-1 w-full max-w-[500px] animate-fade-in stagger-2 relative group parallax-element" data-speed="0.05">
+<div class="absolute inset-0 bg-primary/10 rounded-xl translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+<div class="relative rounded-xl overflow-hidden glass-panel border-none">
+<img alt="Dirga Hayu - Full-Stack Engineer" class="w-full h-auto object-cover aspect-[3/4] mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 opacity-80 hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFXMrf_a3dKiZQ-OPG6vydjUAxctze48fUP1gz_lT510-SoQu-P4-v3Jk_xKvJkkyz7X6vhlvezY2V4hpqAbPkl9c8R84wnf-E9HgYyTNrLnUHni8AEAaTdV5rkaoCb1NEmdZv4-18k6GFvaAJZPTvIWbUnD1iASxOA6i1A74Uw92xcJK5H0tqadZ6ur8htBDjn-nuqpvL0N749e9_Bodqb7IS96-tSGwb8_i0VUrnnRoK-HOKRCXwpX06fyANdpTsag"/>
+</div>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
+<span class="font-label-caps text-[10px] text-on-surface-variant tracking-[0.3em]">SCROLL</span>
+<div class="w-px h-12 bg-gradient-to-b from-primary/50 to-transparent"></div>
+</div>
+</section>
+<!-- Technical Arsenal Section -->
+<section class="py-section-gap relative" id="skills">
+<div class="max-w-container-max mx-auto px-gutter md:px-margin-mobile">
+<div class="mb-16 scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Technical Arsenal</h2>
+<div class="w-12 h-1 bg-primary/20"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Skill Card 1 -->
+<div class="glass-panel p-8 rounded-xl scroll-reveal stagger-1 group hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">memory</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">AI &amp; Machine Learning</h3>
+<p class="font-body-md text-body-md text-subtle-gray mb-6">Developing predictive models, NLP solutions, and computer vision applications.</p>
+<ul class="space-y-2 font-label-caps text-label-caps text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> TensorFlow &amp; PyTorch</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> LLM Integration</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> Data Pipeline Architecture</li>
+</ul>
+</div>
+<!-- Skill Card 2 -->
+<div class="glass-panel p-8 rounded-xl scroll-reveal stagger-2 group hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Backend Systems</h3>
+<p class="font-body-md text-body-md text-subtle-gray mb-6">Architecting scalable, resilient server-side applications and APIs.</p>
+<ul class="space-y-2 font-label-caps text-label-caps text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> Python (FastAPI, Django)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> Node.js &amp; Go</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> PostgreSQL &amp; Redis</li>
+</ul>
+</div>
+<!-- Skill Card 3 -->
+<div class="glass-panel p-8 rounded-xl scroll-reveal stagger-3 group hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">web</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Frontend Engineering</h3>
+<p class="font-body-md text-body-md text-subtle-gray mb-6">Crafting responsive, performance-optimized user interfaces.</p>
+<ul class="space-y-2 font-label-caps text-label-caps text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> React &amp; Next.js</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> TypeScript</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span> Tailwind CSS</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-section-gap bg-surface-container-lowest border-y border-white/5 relative" id="experience">
+<div class="max-w-container-max mx-auto px-gutter md:px-margin-mobile">
+<div class="mb-16 scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Professional Experience</h2>
+<div class="w-12 h-1 bg-primary/20"></div>
+</div>
+<div class="space-y-12 border-l border-white/10 ml-4 md:ml-0 pl-8 md:pl-12 relative">
+<!-- Exp 1 -->
+<div class="scroll-reveal stagger-1 relative">
+<div class="absolute -left-[37px] md:-left-[53px] top-1 w-4 h-4 bg-background border-2 border-primary rounded-full"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Senior AI Engineer</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-2 md:mt-0">2022 - Present</span>
+</div>
+<h4 class="font-body-md text-body-md text-inverse-primary mb-4">TechNova Solutions</h4>
+<p class="font-body-md text-body-md text-subtle-gray max-w-3xl">
+                            Led the development of scalable machine learning pipelines for predictive analytics. Integrated LLMs into core product features, improving user engagement by 40%. Managed a team of 4 junior engineers.
+                        </p>
+</div>
+<!-- Exp 2 -->
+<div class="scroll-reveal stagger-2 relative">
+<div class="absolute -left-[37px] md:-left-[53px] top-1 w-4 h-4 bg-background border-2 border-surface-variant rounded-full"></div>
+<div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Full-Stack Developer</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-2 md:mt-0">2019 - 2022</span>
+</div>
+<h4 class="font-body-md text-body-md text-inverse-primary mb-4">DataSphere Inc.</h4>
+<p class="font-body-md text-body-md text-subtle-gray max-w-3xl">
+                            Architected and built robust backend APIs using Node.js and PostgreSQL. Developed interactive data visualization dashboards using React and D3.js. Reduced API response times by 30% through caching strategies.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Work (Bento Grid) -->
+<section class="py-section-gap relative" id="work">
+<div class="max-w-container-max mx-auto px-gutter md:px-margin-mobile">
+<div class="flex justify-between items-end mb-16 scroll-reveal">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Selected Works</h2>
+<div class="w-12 h-1 bg-primary/20"></div>
+</div>
+<a class="hidden md:inline-flex items-center gap-2 font-label-caps text-label-caps text-primary hover:opacity-80 transition-opacity" href="#">
+                        View All Projects <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+<!-- Project 1 (Large) -->
+<div class="md:col-span-8 glass-panel rounded-xl overflow-hidden group relative scroll-reveal stagger-1 flex flex-col justify-end p-8">
+<div class="absolute inset-0 bg-surface-container-high/50 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700 group-hover:scale-105 transform" data-alt="A sophisticated digital dashboard interface displayed on a sleek monitor in a dimly lit, modern workspace. The UI features complex data visualizations, glowing graphs, and minimalist dark-mode aesthetics with subtle neon blue accents. The environment suggests advanced analytics and high-end software engineering." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBON84HvvwlU381yIaiq12eVUYXVvG9WBfMy4eAhTI2mo_cbeiuc4QBdgebdPFFvlpdXAC7PYkN9cB6mjMDW1CuQuV1VEBCoyDL4CZgSgehS9zs4asqCcYulbtXsdv0m7g23MUDUnMT3TEsWmKtjI4QuD9DfTnKr_lC4T4z7Y3xqEVoltd3DNHZ_W1uduQvrkGqQceWJpprJKbjX8PT9ZWzsHX5HKCDd8SkCZHrhN2-uZvKE2C7cwmy')"></div>
+<div class="relative z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-background/80 backdrop-blur-sm rounded font-label-caps text-[10px] text-primary">AI/ML</span>
+<span class="px-3 py-1 bg-background/80 backdrop-blur-sm rounded font-label-caps text-[10px] text-primary">Python</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-2">Nexus Predictive Engine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">An enterprise-grade machine learning pipeline predicting market trends with 94% accuracy using custom transformer models.</p>
+</div>
+</div>
+<!-- Project 2 (Small) -->
+<div class="md:col-span-4 glass-panel rounded-xl overflow-hidden group relative scroll-reveal stagger-2 flex flex-col justify-end p-8">
+<div class="absolute inset-0 bg-surface-container-high/50 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700 group-hover:scale-105 transform" data-alt="Abstract 3D rendering of a neural network structure glowing with white and grey light against a pitch-black background. Geometric nodes and connecting lines convey a sense of artificial intelligence, data processing, and modern technological architecture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3jbr8HQLK8B8ZGEf2pVMAfLv_F3ebre44IaM3n4Gk0k3f2djV0_dwcjW-YdI3AHKe0n7rJOKsqCnUA8BOpxG90E_9LRMeogbEtHB6kPBHhoZFRV4qEl4IGZnDjDlkVz3gVWCl07ch6fLfkiXjQMLkCM18SZ6Rx9bWHi1nUVIIxr1tUzuE8x0i3hjB4xzSQYsmZmgQlfvowyrrR6xNR9AqNztPjAVRR3RFom2VBOPjyZOxodtWHLOc')"></div>
+<div class="relative z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<span class="inline-block px-3 py-1 bg-background/80 backdrop-blur-sm rounded font-label-caps text-[10px] text-primary mb-4">NLP</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Contextual API</h3>
+</div>
+</div>
+<!-- Project 3 (Medium) -->
+<div class="md:col-span-5 glass-panel rounded-xl overflow-hidden group relative scroll-reveal stagger-3 flex flex-col justify-end p-8">
+<div class="absolute inset-0 bg-surface-container-high/50 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700 group-hover:scale-105 transform" data-alt="A clean, minimalist mobile application interface showing financial data, rendered on a modern smartphone resting on a dark slate surface. The lighting is soft and cinematic, highlighting the sleek UI design and dark theme aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFgEHsJ3oRUNKpePNyJr6tmfYMWvwdwN5H1Z2c14aV9L8gj2edNMr_mWndlSmgFYrGJLBPij6VrRBYML-oxv2whpwHPpI7bJ4q7apTWREVY8CUyJejgza-koy58E2k_CrkxpYO8_ozKzz0bga6TZJPtfwPS3lKKbA4zEm7i7aOgDYAHxQQ1tJJPVtkxasqN3kK865Z9Ny7B_7BSEpw7mSvXmxJLeC5IrlUdLeKJQFdCHj-6OZ2lIP7')"></div>
+<div class="relative z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<span class="inline-block px-3 py-1 bg-background/80 backdrop-blur-sm rounded font-label-caps text-[10px] text-primary mb-4">Full-Stack</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">FinTech Core</h3>
+</div>
+</div>
+<!-- Project 4 (Medium) -->
+<div class="md:col-span-7 glass-panel rounded-xl overflow-hidden group relative scroll-reveal stagger-4 flex flex-col justify-end p-8">
+<div class="absolute inset-0 bg-surface-container-high/50 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700 group-hover:scale-105 transform" data-alt="A macro shot of server racks in a modern data center, bathed in cool, dark tones with tiny blinking LED lights. The image conveys scalable cloud infrastructure, backend engineering, and high-performance computing environments." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAA0YCb9Die07jy1t-yM9MAo8ErSUCXf8UjePlSRDQJI0m5AgFvo-YQCXMbmW482TuFuY909ntkfOEbPMKSJxYJDaW3nBL22YPt2WHEHJAzVnBcuaM7G0Byqur12AnW4eN_1rONprbq8Y4a7gBOMnjkSsuvTvVp1vOy0y9JLiyl4LdVRJupVfsU8JEAcfaX83vZtD0pnEtiYSHSh4b11fnmzDYNG8bqYj_ilsvDgswhU_zAdgIt62yg')"></div>
+<div class="relative z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<span class="inline-block px-3 py-1 bg-background/80 backdrop-blur-sm rounded font-label-caps text-[10px] text-primary mb-4">Architecture</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Distributed Data Mesh</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background w-full py-section-gap border-t border-white/5" id="contact">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto scroll-reveal">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<a class="font-headline-md text-headline-md text-primary block mb-2" href="#">ALVALENS</a>
+<p class="font-body-md text-body-md text-subtle-gray max-w-md">
+                    Feel free to contact me if you have any questions or just want to say hi.
+                </p>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-4">
+                    dirga@dkwibowo.my.id
+                </p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-6">
+<div class="flex gap-6">
+<a class="font-body-md text-body-md text-subtle-gray hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">code</span> GitHub
+                    </a>
+<a class="font-body-md text-body-md text-subtle-gray hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">work</span> LinkedIn
+                    </a>
+<a class="font-body-md text-body-md text-subtle-gray hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">alternate_email</span> Twitter
+                    </a>
+</div>
+<p class="font-body-md text-body-md text-subtle-gray">
+                    © 2024 ALVALENS. Built with precision.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll reveal animation logic with IntersectionObserver
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            // Navbar blur effect on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg', 'bg-background/90');
+                } else {
+                    navbar.classList.remove('shadow-lg', 'bg-background/90');
+                }
+            });
+
+            // Parallax effect logic
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            let ticking = false;
+
+            const updateParallax = () => {
+                if (prefersReducedMotion.matches) return;
+                
+                const scrollY = window.scrollY;
+                
+                parallaxElements.forEach(el => {
+                    const speed = el.dataset.speed || 0.1;
+                    const yPos = scrollY * speed;
+                    el.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                ticking = false;
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }, { passive: true });
+        });
+    </script>
+</body></html>
