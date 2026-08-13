@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">dkwibowo admin icon</title>
+  <desc id="desc">A minimal blue dk monogram on a dark rounded square.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="12" x2="110" y2="118" gradientUnits="userSpaceOnUse"><stop stop-color="#272a31"/><stop offset="1" stop-color="#10131a"/></linearGradient>
+    <linearGradient id="mark" x1="32" y1="25" x2="99" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#d2ddff"/><stop offset="1" stop-color="#719eff"/></linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/><rect x="1" y="1" width="126" height="126" rx="27" fill="none" stroke="#adc6ff" stroke-opacity=".28" stroke-width="2"/>
+  <path d="M34 30v68h17c18 0 29-13 29-34S69 30 51 30H34Zm15 13h2c9 0 14 7 14 21s-5 21-14 21h-2V43Z" fill="url(#mark)"/><path d="m75 58 18-28h17L91 63l20 35H94L78 71l-3 5V58Z" fill="url(#mark)"/><circle cx="104" cy="21" r="4" fill="#8ce8b1"/>
+</svg>

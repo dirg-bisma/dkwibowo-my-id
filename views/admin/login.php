@@ -2,7 +2,7 @@
     <div class="admin-login-orbit admin-login-orbit-one" aria-hidden="true"></div>
     <div class="admin-login-orbit admin-login-orbit-two" aria-hidden="true"></div>
     <div class="admin-login-card">
-        <div class="admin-login-brand" aria-hidden="true">d<span>k</span></div>
+        <img class="admin-login-brand" src="/assets/img/admin-icon.svg" alt="dkwibowo admin">
         <p class="admin-kicker">Private workspace</p>
         <h1>Welcome back.</h1>
         <p class="admin-login-lede">Masuk untuk mengelola project, story, dan content portfolio Anda.</p>

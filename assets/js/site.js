@@ -1,4 +1,39 @@
 (() => {
+    const adminThemeToggle = document.querySelector('[data-admin-theme-toggle]');
+    if (adminThemeToggle && document.body.classList.contains('admin-body')) {
+        const savedTheme = localStorage.getItem('admin-theme') || 'dark';
+        const setAdminTheme = (theme) => {
+            const light = theme === 'light';
+            document.body.dataset.theme = theme;
+            adminThemeToggle.setAttribute('aria-pressed', String(light));
+            adminThemeToggle.querySelector('[data-admin-theme-icon]').textContent = light ? '☀' : '☾';
+            adminThemeToggle.querySelector('[data-admin-theme-label]').textContent = light ? 'Light' : 'Dark';
+        };
+        setAdminTheme(savedTheme);
+        adminThemeToggle.addEventListener('click', () => {
+            const theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('admin-theme', theme);
+            setAdminTheme(theme);
+        });
+    }
+
+    const siteThemeToggle = document.querySelector('[data-site-theme-toggle]');
+    if (siteThemeToggle && !document.body.classList.contains('admin-body')) {
+        const setSiteTheme = (theme) => {
+            const light = theme === 'light';
+            document.body.dataset.theme = theme;
+            siteThemeToggle.setAttribute('aria-pressed', String(light));
+            siteThemeToggle.querySelector('[data-site-theme-icon]').textContent = light ? '☀' : '☾';
+            siteThemeToggle.querySelector('[data-site-theme-label]').textContent = light ? 'Light' : 'Dark';
+        };
+        setSiteTheme(localStorage.getItem('site-theme') || 'dark');
+        siteThemeToggle.addEventListener('click', () => {
+            const theme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('site-theme', theme);
+            setSiteTheme(theme);
+        });
+    }
+
     const menuToggle = document.querySelector('[data-menu-toggle]');
     const menu = document.querySelector('[data-menu]');
     if (menuToggle && menu) {

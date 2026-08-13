@@ -55,7 +55,7 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 
 if (str_starts_with($path, '/assets/')) {
     $relative = substr($path, strlen('/'));
-    if (preg_match('/^[A-Za-z0-9._\/-]+\.(?:css|js|svg|webp|png|jpg|jpeg|gif)$/', $relative) !== 1
+    if (preg_match('/^[A-Za-z0-9._\/-]+\.(?:css|js|svg|ico|webp|png|jpg|jpeg|gif)$/', $relative) !== 1
         || str_contains($relative, '..')) {
         Response::text('Not found.', 404);
     }
@@ -67,6 +67,7 @@ if (str_starts_with($path, '/assets/')) {
         'css' => 'text/css; charset=UTF-8',
         'js' => 'text/javascript; charset=UTF-8',
         'svg' => 'image/svg+xml',
+        'ico' => 'image/x-icon',
         'webp' => 'image/webp',
         'png' => 'image/png',
         'jpg' => 'image/jpeg',

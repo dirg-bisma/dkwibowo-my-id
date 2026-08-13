@@ -18,6 +18,7 @@ $isAdmin = str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/admin');
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/content.css">
     <?php if ($isAdmin): ?><link rel="stylesheet" href="/assets/css/admin.css"><?php endif; ?>
+    <link rel="icon" href="/assets/img/admin-icon.ico" sizes="any">
     <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></title>
     <?php if (!empty($seo['description'])): ?>
         <meta name="description" content="<?= htmlspecialchars($seo['description'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>">
@@ -42,6 +43,7 @@ $isAdmin = str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/admin');
     <?php endif; ?>
 </head>
 <body class="site-body<?= $isAdmin ? ' admin-body' : '' ?>">
+<?php if ($isAdmin): ?><button class="admin-theme-toggle" type="button" data-admin-theme-toggle aria-pressed="false"><span data-admin-theme-icon>☾</span><span data-admin-theme-label>Dark</span></button><?php endif; ?>
 <header class="site-header" data-navbar>
     <nav class="site-nav container" aria-label="Primary navigation">
         <a class="wordmark" href="/<?= htmlspecialchars($language, ENT_QUOTES, 'UTF-8') ?>">dkwibowo</a>
@@ -57,6 +59,7 @@ $isAdmin = str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/admin');
             <a href="/<?= $language ?>#about">About</a>
             <a href="/<?= $language ?>#contact">Contact</a>
             <a class="nav-language" href="/<?= $language === 'id' ? 'en' : 'id' ?>" lang="<?= $language === 'id' ? 'en' : 'id' ?>"><?= $language === 'id' ? 'EN' : 'ID' ?></a>
+            <?php if (!$isAdmin): ?><button class="site-theme-toggle" type="button" data-site-theme-toggle aria-pressed="false"><span data-site-theme-icon>☾</span><span data-site-theme-label>Dark</span></button><?php endif; ?>
         </div>
     </nav>
 </header>
