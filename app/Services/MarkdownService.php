@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use League\CommonMark\Extension\Table\TableExtension;
 use App\Support\Slug;
 use RuntimeException;
 
@@ -45,11 +46,18 @@ final class MarkdownService
         }
 
         $converter = new \League\CommonMark\CommonMarkConverter();
+        $converter->getEnvironment()->addExtension(new TableExtension());
         $html = $converter->convert($markdown)->getContent();
         $config = \HTMLPurifier_Config::createDefault();
         $cachePath = $this->root . '/storage/cache/htmlpurifier';
         if (!is_dir($cachePath) && !mkdir($cachePath, 0775, true) && !is_dir($cachePath)) {
             throw new RuntimeException('Unable to create HTML Purifier cache directory.');
+        }
+        if (!is_writable($cachePath)) {
+            $cachePath = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'dkwibowo-htmlpurifier';
+            if (!is_dir($cachePath) && !mkdir($cachePath, 0775, true) && !is_dir($cachePath)) {
+                throw new RuntimeException('Unable to create temporary HTML Purifier cache directory.');
+            }
         }
         $config->set('Cache.SerializerPath', $cachePath);
         $config->set(

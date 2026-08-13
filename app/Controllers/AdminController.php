@@ -192,6 +192,17 @@ final class AdminController
         $this->upload('inline');
     }
 
+    public function previewMarkdown(): never
+    {
+        $this->auth->requireAdmin();
+        $this->csrf->assertValid($_POST['_csrf'] ?? null);
+        try {
+            Response::json(['html' => $this->markdown->render((string) ($_POST['markdown'] ?? ''))]);
+        } catch (Throwable) {
+            Response::json(['error' => 'Unable to render preview.'], 422);
+        }
+    }
+
     public function trashList(): never
     {
         $this->auth->requireAdmin();

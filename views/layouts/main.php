@@ -17,6 +17,7 @@ $isAdmin = str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/admin');
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/editor.css">
     <?php if ($isAdmin): ?><link rel="stylesheet" href="/assets/css/admin.css"><?php endif; ?>
     <link rel="icon" href="/assets/img/admin-icon.ico" sizes="any">
     <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></title>

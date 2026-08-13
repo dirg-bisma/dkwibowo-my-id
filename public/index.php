@@ -83,7 +83,7 @@ if (str_starts_with($path, '/assets/')) {
 
 if (str_starts_with($path, '/media/')) {
     $relative = substr($path, strlen('/media/'));
-    if (preg_match('/^(?:cover|inline)\/[A-Za-z0-9._-]+\.(?:webp|png|jpg|jpeg|gif)$/', $relative) !== 1) {
+    if (preg_match('/^(?:cover|inline)\/[A-Za-z0-9._-]+\.(?:webp|png|jpg|jpeg|gif|svg)$/', $relative) !== 1) {
         Response::text('Not found.', 404);
     }
     $media = $root . '/storage/media/' . $relative;
@@ -177,6 +177,7 @@ $router->post('/admin/tags/(\d+)/edit', static fn (string $id): never => $admin-
 $router->post('/admin/tags/(\d+)/delete', static fn (string $id): never => $admin->deleteTag((int) $id));
 $router->post('/admin/upload/cover', static fn (): never => $admin->uploadCover());
 $router->post('/admin/upload/inline', static fn (): never => $admin->uploadInline());
+$router->post('/admin/preview/markdown', static fn (): never => $admin->previewMarkdown());
 $router->set404(static function () use ($view): never {
     Response::html($view->page('errors/404', ['title' => '404']), 404);
 });

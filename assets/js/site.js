@@ -122,4 +122,110 @@
             }
         });
     }
+
+    document.querySelectorAll('[data-markdown-editor]').forEach((editor) => {
+        const input = editor.querySelector('[data-markdown-input]');
+        const preview = editor.querySelector('[data-markdown-preview]');
+        const csrf = editor.closest('form')?.querySelector('[name="_csrf"]')?.value || '';
+        let previewTimer;
+
+        const imageButton = document.createElement('button');
+        imageButton.type = 'button';
+        imageButton.className = 'markdown-image-button';
+        imageButton.textContent = '▧';
+        imageButton.title = 'Insert image (JPG, PNG, GIF, WebP, SVG · max 2 MB)';
+        imageButton.setAttribute('aria-label', imageButton.title);
+        imageButton.dataset.markdownAction = 'image';
+        editor.querySelector('.markdown-toolbar')?.insertBefore(imageButton, editor.querySelector('[data-markdown-action="preview"]'));
+        const imageInput = document.createElement('input');
+        imageInput.type = 'file';
+        imageInput.accept = 'image/jpeg,image/png,image/gif,image/webp,image/svg+xml';
+        imageInput.hidden = true;
+        editor.appendChild(imageInput);
+
+        imageButton.addEventListener('click', () => imageInput.click());
+        imageInput.addEventListener('change', async () => {
+            const file = imageInput.files?.[0];
+            if (!file) return;
+            const data = new FormData();
+            data.append('_csrf', csrf);
+            data.append('file', file);
+            imageButton.disabled = true;
+            imageButton.textContent = '…';
+            try {
+                const response = await fetch('/admin/upload/inline', {method: 'POST', body: data});
+                const body = await response.text();
+                const result = JSON.parse(body);
+                if (!response.ok || !result.path) throw new Error(result.error || 'Image upload failed.');
+                const mediaPath = '/' + result.path.replace(/^storage\/media\//, 'media/');
+                const markdown = `![${file.name}](${mediaPath})`;
+                input.setRangeText(markdown, input.selectionStart, input.selectionEnd, 'end');
+                input.focus();
+                input.dispatchEvent(new Event('input', {bubbles: true}));
+            } catch (error) {
+                window.alert(error.message || 'Image upload failed.');
+            } finally {
+                imageButton.disabled = false;
+                imageButton.textContent = '▧';
+                imageInput.value = '';
+            }
+        });
+
+        const replaceSelection = (before, after = before) => {
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
+            const selected = input.value.slice(start, end) || 'text';
+            input.setRangeText(before + selected + after, start, end, 'select');
+            input.focus();
+            input.dispatchEvent(new Event('input', {bubbles: true}));
+        };
+
+        const renderPreview = async () => {
+            const data = new FormData();
+            data.append('_csrf', csrf);
+            data.append('markdown', input.value);
+            try {
+                const response = await fetch('/admin/preview/markdown', {method: 'POST', body: data});
+                const body = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(body);
+                } catch {
+                    throw new Error(`Preview request failed (${response.status}). Please refresh the page and try again.`);
+                }
+                if (!response.ok) throw new Error(result.error || 'Preview failed.');
+                preview.innerHTML = '<span class="field-hint">Preview</span>' + result.html;
+            } catch (error) {
+                preview.innerHTML = '<span class="field-hint">Preview unavailable</span><p>' + (error.message || 'Preview failed.') + '</p>';
+            }
+        };
+
+        editor.querySelectorAll('[data-markdown-action]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const action = button.dataset.markdownAction;
+                if (action === 'heading') replaceSelection('## ', '');
+                if (action === 'bold') replaceSelection('**');
+                if (action === 'italic') replaceSelection('*');
+                if (action === 'list') replaceSelection('- ', '');
+                if (action === 'table') {
+                    const table = '| Parameter | Detail |\n| --- | --- |\n| Item | Description |\n';
+                    input.setRangeText(table, input.selectionStart, input.selectionEnd, 'end');
+                    input.focus();
+                    input.dispatchEvent(new Event('input', {bubbles: true}));
+                }
+                if (action === 'preview') {
+                    const visible = preview.hidden;
+                    preview.hidden = !visible;
+                    button.classList.toggle('is-active', visible);
+                    if (visible) renderPreview();
+                }
+            });
+        });
+
+        input.addEventListener('input', () => {
+            if (preview.hidden) return;
+            window.clearTimeout(previewTimer);
+            previewTimer = window.setTimeout(renderPreview, 350);
+        });
+    });
 })();
