@@ -1,13 +1,13 @@
 # Design System dan Konsep Visual
 
-**Project:** dkwibowo.my.id  
+**Project:** dkwibowo  
 **Status:** Baseline disepakati  
 **Reference:** `docs/example/home.html`  
 **Bahasa:** Indonesia dan English
 
 ## 1. Design Direction
 
-dkwibowo.my.id menggunakan arah visual **dark technical editorial portfolio**.
+dkwibowo menggunakan arah visual **dark technical editorial portfolio**.
 
 Karakter utama:
 
@@ -25,7 +25,7 @@ Desain harus terasa seperti portfolio seorang engineer yang membangun sistem ser
 Brand final:
 
 ```text
-dkwibowo.my.id
+dkwibowo
 ```
 
 Nama brand harus digunakan secara konsisten pada:
@@ -126,7 +126,7 @@ Primary CTA: Get in touch
 Secondary CTA: View selected work
 ```
 
-Nama personal tampil sebagai identitas hero, sementara `dkwibowo.my.id` tetap menjadi brand utama. Copy ini sudah disetujui.
+Nama personal tampil sebagai identitas hero, sementara `dkwibowo` tetap menjadi brand utama. Copy ini sudah disetujui.
 
 ## 6. Layout
 

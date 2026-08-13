@@ -1,4 +1,4 @@
-# dkwibowo.my.id
+# dkwibowo
 
 Website portfolio multilingual berbasis PHP Native dengan arsitektur SQLite + Markdown + Filesystem.
 
@@ -133,7 +133,7 @@ SQLite / Filesystem
 1. Clone repository:
 ```bash
 git clone <repository-url>
-cd dkwibowo.my.id
+cd dkwibowo
 ```
 
 2. Copy environment file:
@@ -181,8 +181,8 @@ Migration database akan berjalan otomatis saat container start.
 1. Setup environment variables di `.env`:
 ```env
 APP_ENV=production
-APP_URL=https://dkwibowo.my.id
-GOOGLE_REDIRECT_URI=https://dkwibowo.my.id/admin/oauth/callback
+APP_URL=https://your-domain.com
+GOOGLE_REDIRECT_URI=https://your-domain.com/admin/oauth/callback
 ```
 
 2. Build dan start container:
@@ -193,9 +193,9 @@ docker compose logs -f app
 
 3. Verifikasi deployment:
 ```bash
-curl -f https://dkwibowo.my.id/health
-curl -f https://dkwibowo.my.id/sitemap.xml
-curl -f https://dkwibowo.my.id/robots.txt
+curl -f https://your-domain.com/health
+curl -f https://your-domain.com/sitemap.xml
+curl -f https://your-domain.com/robots.txt
 ```
 
 ### Backup
@@ -218,7 +218,7 @@ tar -czf backup-$(date +%Y%m%d).tar.gz content/ storage/ database/
 3. Buat OAuth 2.0 credentials (Web application)
 4. Authorized redirect URIs:
    - Development: `http://localhost:8080/admin/oauth/callback`
-   - Production: `https://dkwibowo.my.id/admin/oauth/callback`
+   - Production: `https://your-domain.com/admin/oauth/callback`
 5. Copy Client ID dan Client Secret ke `.env`
 
 ## URL Structure

@@ -34,9 +34,9 @@ final class PublicController
             'page' => $page,
             'totalPages' => max(1, (int) ceil($total / $perPage)),
             'copy' => $this->copy($language),
-            'title' => 'dkwibowo.my.id',
+            'title' => 'dkwibowo',
             'seo' => $this->seo->generatePageMeta(
-                'dkwibowo.my.id',
+                'dkwibowo',
                 '/' . $language . ($tag === null ? '' : '?tag=' . rawurlencode($tag)),
                 $this->copy($language)['meta_description']
             ),
@@ -54,11 +54,11 @@ final class PublicController
             'items' => $this->content->listPublished($perPage, ($page - 1) * $perPage),
             'page' => $page,
             'totalPages' => max(1, (int) ceil($total / $perPage)),
-            'title' => $language === 'id' ? 'Project — dkwibowo.my.id' : 'Projects — dkwibowo.my.id',
+            'title' => $language === 'id' ? 'Project — dkwibowo' : 'Projects — dkwibowo',
             'seo' => $this->seo->generatePageMeta(
                 $language === 'id' ? 'Project' : 'Projects',
                 '/' . $language . '/project',
-                $language === 'id' ? 'Kumpulan project dkwibowo.my.id.' : 'A collection of projects by dkwibowo.my.id.',
+                $language === 'id' ? 'Kumpulan project dkwibowo.' : 'A collection of projects by dkwibowo.',
                 [
                     'id' => $this->seo->url('/id/project'),
                     'en' => $this->seo->url('/en/project'),
@@ -78,7 +78,7 @@ final class PublicController
                 'primary_cta' => 'Hubungi saya',
                 'secondary_cta' => 'Lihat karya pilihan',
                 'availability' => 'Terbuka untuk kolaborasi',
-                'meta_description' => 'Portfolio bilingual dkwibowo.my.id tentang engineering, AI, dan project digital.',
+                'meta_description' => 'Portfolio bilingual dkwibowo tentang engineering, AI, dan project digital.',
             ];
         }
 
@@ -89,7 +89,7 @@ final class PublicController
             'primary_cta' => 'Get in touch',
             'secondary_cta' => 'View selected work',
             'availability' => 'Open for collaboration',
-            'meta_description' => 'A bilingual portfolio by dkwibowo.my.id covering engineering, AI, and digital projects.',
+            'meta_description' => 'A bilingual portfolio by dkwibowo covering engineering, AI, and digital projects.',
         ];
     }
 }

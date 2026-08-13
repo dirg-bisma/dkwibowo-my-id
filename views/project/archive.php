@@ -1,7 +1,7 @@
 <?php $e = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>
 <section class="section-shell archive-page">
     <div class="container">
-        <div class="section-heading reveal"><p class="eyebrow">Project archive</p><h1><?= $language === 'id' ? 'Semua project.' : 'All projects.' ?></h1><p class="muted"><?= $language === 'id' ? 'Kumpulan project yang dipilih dan dipublikasikan di dkwibowo.my.id.' : 'A collection of selected projects published on dkwibowo.my.id.' ?></p></div>
+        <div class="section-heading reveal"><p class="eyebrow">Project archive</p><h1><?= $language === 'id' ? 'Semua project.' : 'All projects.' ?></h1><p class="muted"><?= $language === 'id' ? 'Kumpulan project yang dipilih dan dipublikasikan di dkwibowo.' : 'A collection of selected projects published on dkwibowo.' ?></p></div>
         <?php if ($items === []): ?>
             <div class="empty-state panel"><p><?= $language === 'id' ? 'Belum ada project yang dipublikasikan.' : 'No projects have been published yet.' ?></p></div>
         <?php else: ?>

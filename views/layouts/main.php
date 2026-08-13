@@ -42,7 +42,7 @@ $seo = $seo ?? [];
 <body class="site-body">
 <header class="site-header" data-navbar>
     <nav class="site-nav container" aria-label="Primary navigation">
-        <a class="wordmark" href="/<?= htmlspecialchars($language, ENT_QUOTES, 'UTF-8') ?>">dkwibowo.my.id</a>
+        <a class="wordmark" href="/<?= htmlspecialchars($language, ENT_QUOTES, 'UTF-8') ?>">dkwibowo</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
             <span class="sr-only">Open menu</span>
             <span aria-hidden="true">☰</span>
@@ -67,7 +67,7 @@ $seo = $seo ?? [];
 <footer class="site-footer" id="contact">
     <div class="container footer-grid">
         <div>
-            <p class="eyebrow">dkwibowo.my.id</p>
+            <p class="eyebrow">dkwibowo</p>
             <h2><?= $language === 'id' ? 'Mari bangun sesuatu yang berarti.' : 'Let’s build something meaningful.' ?></h2>
             <p class="muted"><?= $language === 'id' ? 'Terbuka untuk percakapan tentang product, engineering, dan AI.' : 'Open to conversations about product, engineering, and AI.' ?></p>
         </div>
@@ -79,7 +79,7 @@ $seo = $seo ?? [];
             <a href="https://medium.com/@dirg.zeus" target="_blank">Medium</a>
         </div>
     </div>
-    <div class="container footer-bottom"><span>© <?= date('Y') ?> dkwibowo.my.id</span><a href="#main-content">Back to top ↑</a></div>
+    <div class="container footer-bottom"><span>© <?= date('Y') ?> dkwibowo</span><a href="#main-content">Back to top ↑</a></div>
 </footer>
 <script src="/assets/js/site.js" defer></script>
 </body>

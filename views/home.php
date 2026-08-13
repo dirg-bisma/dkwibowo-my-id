@@ -38,7 +38,7 @@ $experience = [
             <div class="portrait-glow" aria-hidden="true"></div>
             <figure class="portrait-frame">
                 <img src="/assets/img/profile.webp" alt="Dirga Hayu, Full-Stack Engineer and AI practitioner" width="896" height="1152">
-                <figcaption><span>dkwibowo.my.id</span><span>01 / PROFILE</span></figcaption>
+                <figcaption><span>dkwibowo</span><span>01 / PROFILE</span></figcaption>
             </figure>
         </div>
     </div>

@@ -1,4 +1,4 @@
-# Phase 7 — Design Implementation dkwibowo.my.id
+# Phase 7 — Design Implementation dkwibowo
 
 **Status:** In progress — visual implementation dan Docker verification selesai; content fixture, final accessibility, dan SEO review masih tersisa  
 **Reference:** `docs/design.md`, `docs/example/home.html`  
@@ -12,7 +12,7 @@ Menerapkan konsep visual dark technical editorial ke aplikasi yang sudah berjala
 
 - mempertahankan PHP native dan view server-rendered yang sudah ada;
 - menggunakan asset lokal untuk production;
-- menjadikan `dkwibowo.my.id` sebagai satu-satunya brand;
+- menjadikan `dkwibowo` sebagai satu-satunya brand;
 - mempertahankan URL bilingual `/id` dan `/en`;
 - menjadikan motion/parallax sebagai enhancement, bukan dependency untuk membaca konten;
 - tidak menampilkan content draft, archived, atau trashed;
@@ -45,7 +45,7 @@ Menerapkan konsep visual dark technical editorial ke aplikasi yang sudah berjala
 ## Phase 7.2 — Application Shell
 
 - [x] Restyle global layout `views/layouts/main.php`.
-- [x] Buat wordmark `dkwibowo.my.id` pada navigation dan footer.
+- [x] Buat wordmark `dkwibowo` pada navigation dan footer.
 - [x] Implementasikan active navigation state.
 - [x] Implementasikan language switcher ID/EN yang mempertahankan konteks URL dan query parameter.
 - [x] Implementasikan mobile menu dengan keyboard support, focus management, dan accessible label.
