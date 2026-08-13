@@ -158,6 +158,7 @@ $router->get('/admin/login', static fn (): never => $admin->login());
 $router->get('/admin/oauth/callback', static fn (): never => $admin->callback());
 $router->post('/admin/logout', static fn (): never => $admin->logout());
 $router->get('/admin', static fn (): never => $admin->dashboard());
+$router->get('/admin/content', static fn (): never => $admin->dashboard());
 $router->get('/admin/trash', static fn (): never => $admin->trashList());
 $router->get('/admin/content/create', static fn (): never => $admin->createForm());
 $router->post('/admin/content/create', static fn (): never => $admin->create());

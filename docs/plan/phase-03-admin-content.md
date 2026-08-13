@@ -1,6 +1,6 @@
 # Phase 3 — Admin dan Content Lifecycle
 
-Status: in progress — admin/auth, CRUD, lifecycle, tags, redirect, dan CSRF dibuat; runtime test menunggu PHP/Composer.
+Status: in progress — admin/auth, CRUD, lifecycle, tags, redirect, CSRF, dan admin UI dasar dibuat; runtime test menunggu PHP/Composer.
 
 ## Tujuan
 
@@ -27,6 +27,8 @@ Phase 1 dan Phase 2.
 - [x] Implementasikan slug change beserta 301 redirect untuk URL ID dan EN.
 - [x] Pertahankan redirect lama sebagai histori saat slug berubah lagi.
 - [x] Update FTS5 saat title, tags, publish, archive, restore, atau delete berubah.
+- [x] Terapkan admin shell terpisah dari public layout dengan dashboard content/tag yang mudah dipindai.
+- [x] Kelompokkan form create/edit berdasarkan identity, metadata, Markdown, dan lifecycle action.
 
 ## Deliverable
 

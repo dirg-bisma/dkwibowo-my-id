@@ -4,6 +4,7 @@ $title = $title ?? 'Portfolio';
 $language = $language ?? 'id';
 $metaRobots = $metaRobots ?? null;
 $seo = $seo ?? [];
+$isAdmin = str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/admin');
 ?>
 <!doctype html>
 <html lang="<?= htmlspecialchars($language, ENT_QUOTES, 'UTF-8') ?>">
@@ -16,6 +17,7 @@ $seo = $seo ?? [];
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/content.css">
+    <?php if ($isAdmin): ?><link rel="stylesheet" href="/assets/css/admin.css"><?php endif; ?>
     <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></title>
     <?php if (!empty($seo['description'])): ?>
         <meta name="description" content="<?= htmlspecialchars($seo['description'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>">
@@ -39,7 +41,7 @@ $seo = $seo ?? [];
         <meta name="robots" content="<?= htmlspecialchars($metaRobots, ENT_QUOTES, 'UTF-8') ?>">
     <?php endif; ?>
 </head>
-<body class="site-body">
+<body class="site-body<?= $isAdmin ? ' admin-body' : '' ?>">
 <header class="site-header" data-navbar>
     <nav class="site-nav container" aria-label="Primary navigation">
         <a class="wordmark" href="/<?= htmlspecialchars($language, ENT_QUOTES, 'UTF-8') ?>">dkwibowo</a>
@@ -64,7 +66,7 @@ $seo = $seo ?? [];
         <?= $body ?>
     </div>
 </main>
-<footer class="site-footer" id="contact">
+<?php if (!$isAdmin): ?><footer class="site-footer" id="contact">
     <div class="container footer-grid">
         <div>
             <p class="eyebrow">dkwibowo</p>
@@ -80,7 +82,7 @@ $seo = $seo ?? [];
         </div>
     </div>
     <div class="container footer-bottom"><span>© <?= date('Y') ?> dkwibowo</span><a href="#main-content">Back to top ↑</a></div>
-</footer>
+</footer><?php endif; ?>
 <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
