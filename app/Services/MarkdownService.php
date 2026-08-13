@@ -47,6 +47,11 @@ final class MarkdownService
         $converter = new \League\CommonMark\CommonMarkConverter();
         $html = $converter->convert($markdown)->getContent();
         $config = \HTMLPurifier_Config::createDefault();
+        $cachePath = $this->root . '/storage/cache/htmlpurifier';
+        if (!is_dir($cachePath) && !mkdir($cachePath, 0775, true) && !is_dir($cachePath)) {
+            throw new RuntimeException('Unable to create HTML Purifier cache directory.');
+        }
+        $config->set('Cache.SerializerPath', $cachePath);
         $config->set(
             'HTML.Allowed',
             'a[href|title|rel],p,br,blockquote,code,pre,em,strong,del,'

@@ -19,7 +19,7 @@ RUN sed -ri 's!/var/www/html!/var/www/html/public!g' \
         /etc/apache2/sites-available/000-default.conf \
         /etc/apache2/apache2.conf \
     && chmod +x /usr/local/bin/app-entrypoint \
-    && mkdir -p database storage/media/cover storage/media/inline storage/trash \
+    && mkdir -p database storage/cache/htmlpurifier storage/media/cover storage/media/inline storage/trash \
     && chown -R www-data:www-data database storage content
 
 ENV APP_ENV=production

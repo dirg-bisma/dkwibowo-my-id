@@ -50,4 +50,41 @@
             ticking = true;
         }, {passive: true});
     }
+
+    const coverUpload = document.querySelector('[data-cover-upload]');
+    if (coverUpload) {
+        const fileInput = coverUpload.querySelector('[data-cover-file]');
+        const pathInput = coverUpload.querySelector('[data-cover-path]');
+        const preview = coverUpload.querySelector('[data-cover-preview]');
+        const label = coverUpload.querySelector('[data-cover-label]');
+        const status = coverUpload.querySelector('[data-cover-status]');
+        const csrf = coverUpload.closest('form')?.querySelector('[name="_csrf"]')?.value;
+
+        fileInput?.addEventListener('change', async () => {
+            const file = fileInput.files?.[0];
+            if (!file) return;
+            const data = new FormData();
+            data.append('_csrf', csrf || '');
+            data.append('file', file);
+            label.textContent = 'Uploading…';
+            status.textContent = 'Uploading cover image…';
+            fileInput.disabled = true;
+            try {
+                const response = await fetch(coverUpload.dataset.uploadUrl, {method: 'POST', body: data});
+                const result = await response.json();
+                if (!response.ok || !result.path) throw new Error(result.error || 'Upload failed.');
+                pathInput.value = result.path;
+                preview.src = '/media/' + result.path.replace(/^storage\/media\//, '');
+                preview.classList.remove('is-hidden');
+                label.textContent = 'Replace cover image';
+                status.textContent = 'Cover uploaded and ready to save.';
+            } catch (error) {
+                label.textContent = 'Choose cover image';
+                status.textContent = error.message || 'Upload failed.';
+                fileInput.value = '';
+            } finally {
+                fileInput.disabled = false;
+            }
+        });
+    }
 })();

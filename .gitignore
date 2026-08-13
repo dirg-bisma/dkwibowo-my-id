@@ -4,6 +4,7 @@
 /database/*.sqlite-*
 /storage/media/*
 /storage/trash/*
+/storage/cache/*
 !.gitkeep
 .DS_Store
 graphify-out/*
